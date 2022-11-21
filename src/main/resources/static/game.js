@@ -122,6 +122,8 @@
         this.clicks = 0;
     };
     window.onload = function() {
+        localStorage.clear();
+
         let canvas = document.getElementById("canvas");
         canvas.width = 400;
         canvas.height = 400;
@@ -153,6 +155,8 @@
             context.fillRect(0, 0, canvas.width, canvas.height);
             game.draw();
             if (game.victory()) {
+                localStorage.setItem('time', 300);
+                localStorage.setItem('clicks', game.getClicks());
                 window.location.href = "./reward";
                 // alert("Собрано за " + game.getClicks() + " касание!");
                 // game.mix(30);
