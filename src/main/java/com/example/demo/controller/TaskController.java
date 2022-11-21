@@ -15,4 +15,8 @@ public class TaskController {
     public String game() {
         return "game";
     }
+    @GetMapping("/reward")
+    public String reward() {
+        return "reward";
+    }
 }

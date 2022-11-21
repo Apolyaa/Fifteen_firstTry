@@ -6,7 +6,7 @@
                 [13,14,15,0]
             ];
 
-            this.color = "#FFB93B";
+            this.color = "#653ea5";
 
             this.context = context;
             this.cellSize = cellSize;
@@ -123,8 +123,8 @@
     };
     window.onload = function() {
         let canvas = document.getElementById("canvas");
-        canvas.width = 320;
-        canvas.height = 320;
+        canvas.width = 400;
+        canvas.height = 400;
 
         let context = canvas.getContext("2d");
         context.fillRect(0, 0, canvas.width, canvas.height);
@@ -132,7 +132,7 @@
         let cellSize = canvas.width / 4;
 
         let game = new Game(context, cellSize);
-        game.mix(30);
+        game.mix(2);
         game.draw();
 
         canvas.onclick = function (e) {
@@ -153,10 +153,11 @@
             context.fillRect(0, 0, canvas.width, canvas.height);
             game.draw();
             if (game.victory()) {
-                alert("Собрано за " + game.getClicks() + " касание!");
-                game.mix(30);
-                context.fillRect(0, 0, canvas.width, canvas.height);
-                game.draw(context, cellSize);
+                window.location.href = "./reward";
+                // alert("Собрано за " + game.getClicks() + " касание!");
+                // game.mix(30);
+                // context.fillRect(0, 0, canvas.width, canvas.height);
+                // game.draw(context, cellSize);
             }
         }
     }
